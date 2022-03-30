@@ -1,10 +1,12 @@
-
 $(document).ready(function () {
+    //You can change name based on folder and change port  
+    var namePort = 'localhost/CMSAPIPHP';
+
     //Fetch All Records
     function loadTable() {
         $("#load-table").html("");
         $.ajax({
-            url: 'http://localhost/intelivita/api/api_fetch_all.php',
+            url: 'http://' + namePort + '/api/api_fetch_all.php',
             type: "GET",
             dataType : "json",
             success: function (data) {
@@ -63,7 +65,7 @@ $(document).ready(function () {
             var row = this;
 
             $.ajax({
-                url: 'http://localhost/intelivita/api/api_delete.php',
+                url: 'http://' + namePort + '/api/api_delete.php',
                 type: "POST",
                 dataType : "json",
                 data: myJSON,
@@ -88,7 +90,7 @@ $(document).ready(function () {
         var myJSON = JSON.stringify(obj);
 
         $.ajax({
-            url: 'http://localhost/intelivita/api/api_fetch_single.php',
+            url: 'http://' + namePort + '/api/api_fetch_single.php',
             type: "POST",
             dataType : "json",
             data: myJSON,
